@@ -1,0 +1,163 @@
+/* --- 1. Global Reset and Variables --- */
+:root {
+    --primary-color: #007BFF; /* A clean blue for links/accents */
+    --secondary-color: #343A40; /* Dark gray for headers */
+    --background-color: #F8F9FA; /* Very light gray for background */
+    --card-bg-color: #FFFFFF; /* Pure white for cards */
+    --text-color: #495057; /* Darker gray for main text */
+    --border-radius: 8px;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Soft shadow */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* --- 2. Layout and Containers --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- 3. Header and Navigation (Taps) --- */
+.site-header {
+    background-color: var(--card-bg-color);
+    padding: 20px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky; /* Keeps the navigation visible */
+    top: 0;
+    z-index: 1000;
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-header h1 {
+    color: var(--primary-color);
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
+.main-nav {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 600;
+    padding: 5px 0;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+/* --- 4. Main Content and Sections --- */
+.news-section {
+    padding: 40px 0;
+    border-bottom: 1px solid #E9ECEF;
+}
+
+.section-title {
+    font-size: 2em;
+    color: var(--secondary-color);
+    margin-bottom: 30px;
+    font-weight: 700;
+    border-left: 5px solid var(--primary-color);
+    padding-left: 15px;
+}
+
+/* --- 5. Card Grid (The Modern Look) --- */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+    gap: 30px;
+}
+
+.news-card {
+    background-color: var(--card-bg-color);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 5px solid var(--primary-color);
+}
+
+.news-card:hover {
+    transform: translateY(-5px); /* Subtle lift effect on hover */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+    font-size: 1.25em;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.card-excerpt {
+    margin-bottom: 15px;
+}
+
+.read-more {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/* Special styling for the 'My View' opinion cards */
+.opinion-card {
+    border-top-color: #FFC107; /* A yellow/gold border for opinion pieces */
+}
+
+/* --- 6. Footer --- */
+.site-footer {
+    background-color: var(--secondary-color);
+    color: var(--background-color);
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* --- 7. Responsiveness (Mobile Taps) --- */
+@media (max-width: 768px) {
+    .site-header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .site-header h1 {
+        margin-bottom: 15px;
+    }
+
+    .main-nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .section-title {
+        font-size: 1.7em;
+    }
+}
